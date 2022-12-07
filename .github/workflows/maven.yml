@@ -25,8 +25,8 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '7'
-        distribution: 'temurin'
-        cache: maven
+        #distribution: 'temurin'
+        #cache: maven
     - name: Step 3 - Build with Maven
       run: mvn clean install -U && mvn -B package --file my-app/pom.xml
 
