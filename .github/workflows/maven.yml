@@ -21,12 +21,12 @@ jobs:
     - name: Step 1 - Checkout main barnch from GitHub
       uses: actions/checkout@v3
 
-    - name: Step 2 - Set up JDK 7
+    - name: Step 2 - Set up JDK 8
       uses: actions/setup-java@v3
       with:
-        java-version: '7'
-        #distribution: 'temurin'
-        #cache: maven
+        java-version: '8'
+        distribution: 'temurin'
+        cache: maven
     - name: Step 3 - Build with Maven
       run: mvn clean install -U && mvn -B package --file my-app/pom.xml
 
