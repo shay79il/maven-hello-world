@@ -71,7 +71,7 @@ jobs:
   build-docker-image:
     name: Publish to Docker Hub
     runs-on: ubuntu-latest
-    needs: [build_and_test]
+    needs: [publish_job]
 
     steps:
       - name: Step 1 - Checkout main branch from GitHub
