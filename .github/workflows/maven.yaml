@@ -81,14 +81,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Package
-          path: my-app
+          # path: my-app
 
       - name: Step 3 - Login to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Step 4 - Build Container image
         run: |
-          cd my-app
           pwd
           ls -l
           docker build -t ${{ secrets.DOCKER_REPO }}/my-app:1.0.${{ github.run_number }} .
