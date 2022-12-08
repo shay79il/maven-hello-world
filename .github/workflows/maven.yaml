@@ -93,7 +93,7 @@ jobs:
           docker build -t ${{ secrets.DOCKER_REPO }}/my-app:1.0.${{ github.run_number }} .
 
       - name: Step 5 - Publish Docker image
-        run: docker push ${{ secrets.DOCKER_REPO }}
+        run: docker push ${{ secrets.DOCKER_REPO }}/my-app
 
       - name: Step 6 - Run Docker image
         run: docker run ${{ secrets.DOCKER_REPO }}/my-app:1.0.${{ github.run_number }}
