@@ -88,6 +88,7 @@ jobs:
 
       - name: Step 4 - Build Container image
         run: |
+          pwd
           ls -l
           docker build -t ${{ secrets.DOCKER_REPO }}/my-app:1.0.${{ github.run_number }} .
 
