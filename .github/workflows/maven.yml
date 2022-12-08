@@ -60,7 +60,7 @@ jobs:
       - name: Step 4 - Copy artifact
         run: |
           mkdir staging
-          cp target/my-app-1.0.${{ github.run_number }}.jar staging
+          cp my-app/target/my-app-1.0.${{ github.run_number }}.jar staging
 
       - name: Step 5 - Upload-artifact
         uses: actions/upload-artifact@v1
