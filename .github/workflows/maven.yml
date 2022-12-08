@@ -25,7 +25,6 @@ jobs:
           mvn clean install -U
           mvn -B package                              \
             -Dversion=1.0.${{ github.run_number }}    \
-            -Dpackaging=jar                           \
             -DoutputDirectory=target                  \
             --file pom.xml
 
