@@ -81,6 +81,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Package
+          path: .
 
       - name: Step 3 - Login to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
