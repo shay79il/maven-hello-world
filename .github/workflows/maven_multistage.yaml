@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: Java CI with Maven multistage
 
 on:
   push:
@@ -47,13 +47,13 @@ jobs:
           docker build                                            \
             --build-arg JAR_VERSION=1.0.${{ github.run_number }}  \
             -f Dockerfile.multistage                              \
-            -t ${{ secrets.DOCKER_REPO }}/my-app:1.0.:${{ github.run_number }} .
+            -t ${{ secrets.DOCKER_REPO }}/my-app-multistage:1.0.${{ github.run_number }} .
 
       - name: Step 3 - Login to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Step 4 - Publish Docker image
-        run: docker push ${{ secrets.DOCKER_REPO }}/my-app:1.0.${{ github.run_number }}
+        run: docker push ${{ secrets.DOCKER_REPO }}/my-app-multistage:1.0.${{ github.run_number }}
 
       - name: Step 5 - Run Docker image
-        run: docker run ${{ secrets.DOCKER_REPO }}/my-app:1.0.${{ github.run_number }}
+        run: docker run ${{ secrets.DOCKER_REPO }}/my-app-multistage:1.0.${{ github.run_number }}
