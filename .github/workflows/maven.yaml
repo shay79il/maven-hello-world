@@ -84,7 +84,7 @@ jobs:
 
       - name: Step 3 - Build Container image
         run: |
-          docker image build -t ${{ secrets.DOCKER_REPO }}/my-app:1.0.${{ github.run_number }} .
+          docker image build -t  ${{ secrets.DOCKER_REPO }}/my-app:1.0.${{ github.run_number }} .
 
       - name: Step 4 - Login & push Docker Hub
         run: |
