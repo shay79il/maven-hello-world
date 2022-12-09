@@ -85,13 +85,12 @@ jobs:
 
       - name: Step 3 - Build Container image
         run: |
-          pwd
-          ls -l
-          docker build -t ${{ secrets.DOCKER_REPO }}/my-app:1.0.${{ github.run_number }} .
+          docker build -t my-app
+          docker tag my-app ${{ secrets.DOCKER_REPO }}/my-app:1.0.${{ github.run_number }} .
 
       - name: Step 4 - Login to Docker Hub
         run: |
-          docker logout
+          docker image ls
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} docker.io
 
       - name: Step 5 - Publish Docker image
